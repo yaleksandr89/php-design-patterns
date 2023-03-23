@@ -6,7 +6,8 @@
         "classmap": [
             "fundamental/properties-container",
             "fundamental/delegation",
-            "fundamental/event-channel"
+            "fundamental/event-channel",
+            "behavioral/strategy"
         ]
     }
 }
