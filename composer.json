@@ -4,7 +4,8 @@
     },
     "autoload": {
         "classmap": [
-            "fundamental/properties-container"
+            "fundamental/properties-container",
+            "fundamental/delegation"
         ]
     }
 }
