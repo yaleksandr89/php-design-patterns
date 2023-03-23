@@ -5,7 +5,8 @@
     "autoload": {
         "classmap": [
             "fundamental/properties-container",
-            "fundamental/delegation"
+            "fundamental/delegation",
+            "fundamental/event-channel"
         ]
     }
 }
