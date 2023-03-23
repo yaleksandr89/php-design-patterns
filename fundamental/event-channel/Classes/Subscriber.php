@@ -6,11 +6,9 @@ use Fundamental\EventChannel\Interfaces\SubscriberInterface;
 
 class Subscriber implements SubscriberInterface
 {
-    private string $name;
-
-    public function __construct(string $name)
-    {
-        $this->name = $name;
+    public function __construct(
+        private string $name
+    ) {
     }
 
     public function notify(string $data)
