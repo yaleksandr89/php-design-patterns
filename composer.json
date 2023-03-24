@@ -12,7 +12,8 @@
             "generating/factory-method",
             "generating/static-factory",
             "generating/simple-factory",
-            "generating/singleton"
+            "generating/singleton",
+            "generating/multiton"
         ]
     }
 }
