@@ -10,7 +10,8 @@
             "behavioral/strategy",
             "generating/abstract-factory",
             "generating/factory-method",
-            "generating/static-factory"
+            "generating/static-factory",
+            "generating/simple-factory"
         ]
     }
 }
