@@ -14,7 +14,8 @@
             "generating/simple-factory",
             "generating/singleton",
             "generating/multiton",
-            "generating/builder"
+            "generating/builder",
+            "generating/lazy-initialization"
         ]
     }
 }
