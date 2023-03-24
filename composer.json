@@ -16,7 +16,8 @@
             "generating/multiton",
             "generating/builder",
             "generating/lazy-initialization",
-            "generating/prototype"
+            "generating/prototype",
+            "generating/object-pool"
         ]
     }
 }
