@@ -15,7 +15,8 @@
             "generating/singleton",
             "generating/multiton",
             "generating/builder",
-            "generating/lazy-initialization"
+            "generating/lazy-initialization",
+            "generating/prototype"
         ]
     }
 }
