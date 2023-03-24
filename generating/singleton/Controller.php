@@ -11,9 +11,6 @@ class Controller
 {
     private string $name = 'Одиночка';
 
-    /**
-     * @throws Exception
-     */
     #[NoReturn]
     public function singleton(): void
     {
