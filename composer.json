@@ -7,7 +7,8 @@
             "fundamental/properties-container",
             "fundamental/delegation",
             "fundamental/event-channel",
-            "behavioral/strategy"
+            "behavioral/strategy",
+            "generating/abstract-factory"
         ]
     }
 }
