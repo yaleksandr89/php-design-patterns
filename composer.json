@@ -13,7 +13,8 @@
             "generating/static-factory",
             "generating/simple-factory",
             "generating/singleton",
-            "generating/multiton"
+            "generating/multiton",
+            "generating/builder"
         ]
     }
 }
