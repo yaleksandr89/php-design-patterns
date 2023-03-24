@@ -11,7 +11,8 @@
             "generating/abstract-factory",
             "generating/factory-method",
             "generating/static-factory",
-            "generating/simple-factory"
+            "generating/simple-factory",
+            "generating/singleton"
         ]
     }
 }
