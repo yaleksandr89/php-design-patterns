@@ -9,7 +9,8 @@
             "fundamental/event-channel",
             "behavioral/strategy",
             "generating/abstract-factory",
-            "generating/factory-method"
+            "generating/factory-method",
+            "generating/static-factory"
         ]
     }
 }
