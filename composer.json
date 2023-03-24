@@ -8,7 +8,8 @@
             "fundamental/delegation",
             "fundamental/event-channel",
             "behavioral/strategy",
-            "generating/abstract-factory"
+            "generating/abstract-factory",
+            "generating/factory-method"
         ]
     }
 }
