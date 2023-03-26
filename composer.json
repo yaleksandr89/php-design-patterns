@@ -18,7 +18,8 @@
             "generating/lazy-initialization",
             "generating/prototype",
             "generating/object-pool",
-            "structural/adapter"
+            "structural/adapter",
+            "structural/facade"
         ]
     }
 }
