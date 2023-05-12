@@ -19,7 +19,8 @@
             "generating/prototype",
             "generating/object-pool",
             "structural/adapter",
-            "structural/facade"
+            "structural/facade",
+            "structural/bridge"
         ]
     }
 }
