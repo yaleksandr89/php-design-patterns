@@ -22,5 +22,8 @@
             "structural/facade",
             "structural/bridge"
         ]
+    },
+    "require": {
+        "fakerphp/faker": "^1.21"
     }
 }
