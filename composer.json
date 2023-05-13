@@ -21,7 +21,8 @@
             "structural/adapter",
             "structural/facade",
             "structural/bridge",
-            "structural/composite"
+            "structural/composite",
+            "structural/decorator"
         ]
     },
     "require": {
