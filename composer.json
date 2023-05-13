@@ -20,7 +20,8 @@
             "generating/object-pool",
             "structural/adapter",
             "structural/facade",
-            "structural/bridge"
+            "structural/bridge",
+            "structural/composite"
         ]
     },
     "require": {
