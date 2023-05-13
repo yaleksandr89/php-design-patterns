@@ -23,7 +23,8 @@
             "structural/bridge",
             "structural/composite",
             "structural/decorator",
-            "structural/dto"
+            "structural/dto",
+            "structural/proxy"
         ]
     },
     "require": {
