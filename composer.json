@@ -22,7 +22,8 @@
             "structural/facade",
             "structural/bridge",
             "structural/composite",
-            "structural/decorator"
+            "structural/decorator",
+            "structural/dto"
         ]
     },
     "require": {
