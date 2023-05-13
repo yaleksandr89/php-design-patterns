@@ -3,6 +3,8 @@
 namespace Structural\Bridge;
 
 use JetBrains\PhpStorm\NoReturn;
+use Structural\Bridge\WithBridge\WithBridgeDemo;
+use Structural\Bridge\WithoutBridge\WithoutBridgeDemo;
 
 class Controller
 {
@@ -11,6 +13,7 @@ class Controller
     #[NoReturn]
     public function bridge(): void
     {
-        dd($_SERVER);
+        // (new WithoutBridgeDemo())->run(); // без применения шаблона
+        (new WithBridgeDemo())->run(); // с применением шаблона
     }
 }
