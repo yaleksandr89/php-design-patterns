@@ -1,33 +1,19 @@
 {
+    "name": "yaleksandr89/design-patterns",
+    "description": "Educational PHP project with design pattern examples",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "fakerphp/faker": "^1.24"
+    },
     "require-dev": {
-        "symfony/var-dumper": "^6.2"
+        "symfony/var-dumper": "^8.0"
     },
     "autoload": {
-        "classmap": [
-            "fundamental/properties-container",
-            "fundamental/delegation",
-            "fundamental/event-channel",
-            "behavioral/strategy",
-            "generating/abstract-factory",
-            "generating/factory-method",
-            "generating/static-factory",
-            "generating/simple-factory",
-            "generating/singleton",
-            "generating/multiton",
-            "generating/builder",
-            "generating/lazy-initialization",
-            "generating/prototype",
-            "generating/object-pool",
-            "structural/adapter",
-            "structural/facade",
-            "structural/bridge",
-            "structural/composite",
-            "structural/decorator",
-            "structural/dto",
-            "structural/proxy"
-        ]
+        "psr-4": {
+            "DesignPatternsBook\\": "src/"
+        }
     },
-    "require": {
-        "fakerphp/faker": "^1.21"
-    }
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
