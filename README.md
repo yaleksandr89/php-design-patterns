@@ -26,7 +26,9 @@
 - Adapter → ...
 - Bridge → ...
 - Composite → ...
-- Decorator → [src/Structural/Decorator](src/Structural/Decorator)
+- Decorator
+    - [Example01 — классический декоратор с базовым декоратором](src/Structural/Decorator/Example01)
+    - [Example02 — декоратор без базового декоратора](src/Structural/Decorator/Example02)
 
 ---
 

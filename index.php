@@ -5,19 +5,19 @@ declare(strict_types=1);
 $patternCatalog = require __DIR__ . '/config/pattern-catalog.php';
 
 /**
- * Преобразует структуру паттерна в HTML-список для popover.
+ * Преобразует структуру примера в HTML-список для popover.
  *
  * @param array<string, string> $structure
  */
-function buildPatternStructureHtml(array $structure): string
+function buildStructureHtml(array $structure): string
 {
     $items = [];
 
     foreach ($structure as $role => $className) {
         $items[] = sprintf(
-            '<li><span class="pattern-structure-role">%s</span><br><code>%s</code></li>',
-            htmlspecialchars($role, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'),
-            htmlspecialchars($className, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'),
+                '<li><span class="pattern-structure-role">%s</span><br><code>%s</code></li>',
+                htmlspecialchars($role, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'),
+                htmlspecialchars($className, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'),
         );
     }
 
@@ -30,6 +30,7 @@ function buildPatternStructureHtml(array $structure): string
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Паттерны проектирования (PHP)</title>
+
     <link rel="stylesheet" href="/assets/vendor/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/app.css">
 </head>
@@ -44,15 +45,15 @@ function buildPatternStructureHtml(array $structure): string
 
     <?php foreach ($patternCatalog as $group): ?>
         <section class="pattern-group mb-5">
-            <div class="d-flex align-items-center justify-content-between mb-4">
+            <div class="mb-4">
                 <h2 class="h2 mb-0"><?= htmlspecialchars($group['title']) ?></h2>
             </div>
 
             <div class="row g-4">
                 <?php foreach ($group['patterns'] as $pattern): ?>
                     <?php
-                    $structureHtml = buildPatternStructureHtml($pattern['structure']);
                     $isImplemented = $pattern['isImplemented'] === true;
+                    $examples = $pattern['examples'] ?? [];
                     ?>
                     <div class="col-12 col-md-6 col-xl-4">
                         <article class="card pattern-card h-100 border-0 shadow-sm">
@@ -69,38 +70,76 @@ function buildPatternStructureHtml(array $structure): string
                                     <?php endif; ?>
                                 </div>
 
-                                <p class="card-text text-secondary flex-grow-1 mb-4">
+                                <p class="card-text text-secondary mb-4">
                                     <?= htmlspecialchars($pattern['description']) ?>
                                 </p>
 
-                                <div class="d-flex align-items-center justify-content-between gap-3 mt-auto">
-                                    <?php if ($pattern['url'] !== null && $isImplemented): ?>
-                                        <a
-                                            href="<?= htmlspecialchars($pattern['url']) ?>"
-                                            class="btn btn-primary js-pattern-link"
-                                        >
-                                            Открыть пример
-                                        </a>
-                                    <?php else: ?>
-                                        <button type="button" class="btn btn-outline-secondary" disabled>
-                                            Пока недоступно
-                                        </button>
-                                    <?php endif; ?>
+                                <div class="mt-auto">
+                                    <div class="mb-3">
+                                        <h4 class="h6 text-uppercase text-secondary mb-0">Примеры</h4>
+                                    </div>
 
-                                    <button
-                                        type="button"
-                                        class="pattern-help-button"
-                                        data-bs-toggle="popover"
-                                        data-bs-trigger="hover focus"
-                                        data-bs-placement="left"
-                                        data-bs-html="true"
-                                        data-bs-title="<?= htmlspecialchars($pattern['name']) ?>: структура"
-                                        data-bs-content="<?= htmlspecialchars($structureHtml, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>"
-                                        aria-label="Показать структуру паттерна <?= htmlspecialchars($pattern['name']) ?>"
-                                        title="Структура паттерна"
-                                    >
-                                        <span class="pattern-help-icon">i</span>
-                                    </button>
+                                    <?php if ($examples === []): ?>
+                                        <div class="text-secondary small">
+                                            Примеры пока не добавлены.
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="list-group list-group-flush pattern-example-list">
+                                            <?php foreach ($examples as $example): ?>
+                                                <?php
+                                                $exampleReady = ($example['isImplemented'] ?? false) && ($example['url'] ?? null) !== null;
+                                                $exampleStructure = $example['structure'] ?? [];
+                                                $exampleStructureHtml = $exampleStructure !== []
+                                                        ? buildStructureHtml($exampleStructure)
+                                                        : '';
+                                                ?>
+                                                <div class="list-group-item">
+                                                    <div class="d-flex justify-content-between align-items-start gap-3">
+                                                        <div class="me-3 flex-grow-1">
+                                                            <div class="fw-semibold">
+                                                                <?= htmlspecialchars($example['name']) ?>
+                                                            </div>
+                                                            <div class="small text-secondary">
+                                                                <?= htmlspecialchars($example['title']) ?>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <?php if ($exampleStructure !== []): ?>
+                                                                <button
+                                                                        type="button"
+                                                                        class="pattern-help-button"
+                                                                        data-bs-toggle="popover"
+                                                                        data-bs-trigger="hover focus"
+                                                                        data-bs-placement="left"
+                                                                        data-bs-html="true"
+                                                                        data-bs-title="<?= htmlspecialchars($pattern['name'] . ' / ' . $example['name']) ?>: структура"
+                                                                        data-bs-content="<?= htmlspecialchars($exampleStructureHtml, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>"
+                                                                        aria-label="Показать структуру примера <?= htmlspecialchars($example['name']) ?>"
+                                                                        title="Структура примера"
+                                                                >
+                                                                    <span class="pattern-help-icon">i</span>
+                                                                </button>
+                                                            <?php endif; ?>
+
+                                                            <?php if ($exampleReady): ?>
+                                                                <a
+                                                                        href="<?= htmlspecialchars((string) $example['url']) ?>"
+                                                                        class="btn btn-sm btn-primary"
+                                                                >
+                                                                    Открыть
+                                                                </a>
+                                                            <?php else: ?>
+                                                                <span class="badge text-bg-secondary rounded-pill">
+                                                                    Скоро
+                                                                </span>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </article>
@@ -110,6 +149,7 @@ function buildPatternStructureHtml(array $structure): string
         </section>
     <?php endforeach; ?>
 </div>
+
 <script src="/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="/assets/js/app.js"></script>
 </body>
