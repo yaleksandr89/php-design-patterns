@@ -12,8 +12,8 @@
 
 **Паттерны:**
 
-* Factory → `src/Creational/Factory` *(реализован: `Example01`)*
-* AbstractFactory → `src/Creational/AbstractFactory`
+- Factory → [src/Creational/Factory](src/Creational/Factory)
+- AbstractFactory → `src/Creational/AbstractFactory`
 
 ---
 
@@ -23,10 +23,10 @@
 
 **Паттерны:**
 
-* Adapter → `src/Structural/Adapter`
-* Bridge → `src/Structural/Bridge`
-* Composite → `src/Structural/Composite`
-* Decorator → `src/Structural/Decorator` *(реализован: `Example01`)*
+- Adapter → `src/Structural/Adapter`
+- Bridge → `src/Structural/Bridge`
+- Composite → `src/Structural/Composite`
+- Decorator → [src/Structural/Decorator](src/Structural/Decorator)
 
 ---
 
@@ -36,14 +36,14 @@
 
 **Паттерны:**
 
-* Strategy → `src/Behavioral/Strategy` *(реализован: `Example01`)*
-* Mediator → `src/Behavioral/Mediator`
-* ChainOfResponsibility → `src/Behavioral/ChainOfResponsibility`
-* Observer → `src/Behavioral/Observer`
-* State → `src/Behavioral/State`
-* TemplateMethod → `src/Behavioral/TemplateMethod`
-* Visitor → `src/Behavioral/Visitor`
-* Pipeline → `src/Behavioral/Pipeline`
+- Strategy → [src/Behavioral/Strategy/Example01](src/Behavioral/Strategy/Example01)
+- Mediator → `src/Behavioral/Mediator`
+- ChainOfResponsibility → `src/Behavioral/ChainOfResponsibility`
+- Observer → `src/Behavioral/Observer`
+- State → `src/Behavioral/State`
+- TemplateMethod → `src/Behavioral/TemplateMethod`
+- Visitor → `src/Behavioral/Visitor`
+- Pipeline → `src/Behavioral/Pipeline`
 
 ---
 
@@ -128,8 +128,8 @@ make composer-dump-autoload
 
 В проекте подключены:
 
-* `Xdebug`
-* `symfony/var-dumper`
+- `Xdebug`
+- `symfony/var-dumper`
 
 Можно ставить breakpoints в PhpStorm, использовать `dump()` и `dd()`, а также просматривать Xdebug-логи в директории:
 
@@ -141,9 +141,9 @@ var/log/xdebug/
 
 ## Требования
 
-* Docker
-* Docker Compose
-* запись в `hosts`:
+- Docker
+- Docker Compose
+- запись в `hosts`:
 
 ```text
 127.0.0.1 design-patterns.local

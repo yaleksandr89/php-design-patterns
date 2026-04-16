@@ -1,0 +1,69 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.page-header {
+    max-width: 760px;
+}
+
+.pattern-card {
+    border-radius: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pattern-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08) !important;
+}
+
+.pattern-help-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border: 1px solid #ced4da;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #0d6efd;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.pattern-help-button:hover,
+.pattern-help-button:focus {
+    background: #0d6efd;
+    color: #ffffff;
+    border-color: #0d6efd;
+    outline: none;
+}
+
+.pattern-help-icon {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.popover {
+    max-width: 360px;
+    border-radius: 0.9rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
+}
+
+.popover-header {
+    font-weight: 700;
+}
+
+.pattern-structure-list {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.pattern-structure-list li + li {
+    margin-top: 0.65rem;
+}
+
+.pattern-structure-role {
+    font-weight: 600;
+}
