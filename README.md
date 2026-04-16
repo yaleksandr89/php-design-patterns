@@ -1,11 +1,150 @@
-# Паттерны проектирования
+# Паттерны проектирования (PHP)
 
-Примеры реализаций различных паттернов проектирования:
+Проект с примерами реализации паттернов проектирования на PHP.
 
-* [Поведенческие шаблоны проектирования](https://www.youtube.com/playlist?list=PLoonZ8wII66gP4i_SJcLdie_aJjy3m4_R)
-* [Фундаментальные шаблоны проектирования](https://www.youtube.com/playlist?list=PLoonZ8wII66jY9zYXsvTDj5thPpCpa58v)
-* [Порождающие шаблоны проектирования](https://www.youtube.com/playlist?list=PLoonZ8wII66inyWXuikmI0ANxC9tKgZPY)
-* [Структурные шаблоны проектирования](https://www.youtube.com/playlist?list=PLoonZ8wII66jy3Mazkks_I1Eg30gdee2k)
+---
 
-Данные пример были взяты с канала [Dmitry Afanasyev](https://www.youtube.com/@DmitryAfanasyev/featured)
+## Типы паттернов
 
+### Порождающие (`Creational`)
+
+Отвечают на вопрос: как создавать объекты.
+
+**Паттерны:**
+
+* Factory → `src/Creational/Factory` *(реализован: `Example01`)*
+* AbstractFactory → `src/Creational/AbstractFactory`
+
+---
+
+### Структурные (`Structural`)
+
+Отвечают на вопрос: как компоновать классы и объекты.
+
+**Паттерны:**
+
+* Adapter → `src/Structural/Adapter`
+* Bridge → `src/Structural/Bridge`
+* Composite → `src/Structural/Composite`
+* Decorator → `src/Structural/Decorator` *(реализован: `Example01`)*
+
+---
+
+### Поведенческие (`Behavioral`)
+
+Отвечают на вопрос: как объекты взаимодействуют друг с другом.
+
+**Паттерны:**
+
+* Strategy → `src/Behavioral/Strategy` *(реализован: `Example01`)*
+* Mediator → `src/Behavioral/Mediator`
+* ChainOfResponsibility → `src/Behavioral/ChainOfResponsibility`
+* Observer → `src/Behavioral/Observer`
+* State → `src/Behavioral/State`
+* TemplateMethod → `src/Behavioral/TemplateMethod`
+* Visitor → `src/Behavioral/Visitor`
+* Pipeline → `src/Behavioral/Pipeline`
+
+---
+
+## Структура проекта
+
+```text
+src/
+  Creational/
+  Structural/
+  Behavioral/
+```
+
+Каждый паттерн может содержать несколько примеров:
+
+```text
+PatternName/
+  Example01/
+  Example02/
+```
+
+---
+
+## Запуск проекта
+
+### Подготовка окружения
+
+```bash
+make docker-init
+make docker-up
+make composer-init
+```
+
+После запуска проект доступен по адресу:
+
+```text
+http://design-patterns.local
+```
+
+---
+
+## Команды
+
+Запуск контейнеров:
+
+```bash
+make docker-up
+```
+
+Остановка контейнеров:
+
+```bash
+make docker-down
+```
+
+Просмотр логов:
+
+```bash
+make docker-logs
+```
+
+Вход в контейнер PHP:
+
+```bash
+make docker-shell
+```
+
+Установка зависимостей Composer:
+
+```bash
+make composer-install
+```
+
+Оптимизация автозагрузки:
+
+```bash
+make composer-dump-autoload
+```
+
+---
+
+## Отладка
+
+В проекте подключены:
+
+* `Xdebug`
+* `symfony/var-dumper`
+
+Можно ставить breakpoints в PhpStorm, использовать `dump()` и `dd()`, а также просматривать Xdebug-логи в директории:
+
+```text
+var/log/xdebug/
+```
+
+---
+
+## Требования
+
+* Docker
+* Docker Compose
+* запись в `hosts`:
+
+```text
+127.0.0.1 design-patterns.local
+```

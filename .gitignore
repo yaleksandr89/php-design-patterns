@@ -1,2 +1,6 @@
 /vendor/
 /.idea/
+/var/log/xdebug/*.log
+!/var/log/xdebug/.gitkeep
+.env
+docker-compose.override.yml
