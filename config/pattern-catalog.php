@@ -37,7 +37,7 @@ return [
                 'name' => 'Factory',
                 'description' => 'Инкапсулирует создание объектов.',
                 'url' => '/src/Creational/Factory/Example01/index.php',
-                'isImplemented' => false,
+                'isImplemented' => true,
                 'structure' => [
                     'Контракт продукта' => 'NotificationInterface',
                     'Конкретные продукты' => 'EmailNotification, SmsNotification',

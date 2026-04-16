@@ -13,7 +13,7 @@
 **Паттерны:**
 
 - Factory → [src/Creational/Factory](src/Creational/Factory)
-- AbstractFactory → `src/Creational/AbstractFactory`
+- AbstractFactory → ...
 
 ---
 
@@ -23,9 +23,9 @@
 
 **Паттерны:**
 
-- Adapter → `src/Structural/Adapter`
-- Bridge → `src/Structural/Bridge`
-- Composite → `src/Structural/Composite`
+- Adapter → ...
+- Bridge → ...
+- Composite → ...
 - Decorator → [src/Structural/Decorator](src/Structural/Decorator)
 
 ---
@@ -36,14 +36,14 @@
 
 **Паттерны:**
 
-- Strategy → [src/Behavioral/Strategy/Example01](src/Behavioral/Strategy/Example01)
-- Mediator → `src/Behavioral/Mediator`
-- ChainOfResponsibility → `src/Behavioral/ChainOfResponsibility`
-- Observer → `src/Behavioral/Observer`
-- State → `src/Behavioral/State`
-- TemplateMethod → `src/Behavioral/TemplateMethod`
-- Visitor → `src/Behavioral/Visitor`
-- Pipeline → `src/Behavioral/Pipeline`
+- Strategy → [src/Behavioral/Strategy](src/Behavioral/Strategy)
+- Mediator → ...
+- ChainOfResponsibility → ...
+- Observer → ...
+- State → ...
+- TemplateMethod → ...
+- Visitor → ...
+- Pipeline → ...
 
 ---
 
