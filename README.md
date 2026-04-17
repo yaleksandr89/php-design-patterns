@@ -42,7 +42,7 @@
 - Mediator
 - ChainOfResponsibility
 - Observer
-- State
+- [State](src/Behavioral/State)
 - TemplateMethod
 - Visitor
 - Pipeline

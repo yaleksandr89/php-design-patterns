@@ -26,6 +26,24 @@ return [
                 ],
             ],
             [
+                'name' => 'State',
+                'description' => 'Позволяет объекту изменять поведение при изменении его внутреннего состояния.',
+                'isImplemented' => true,
+                'examples' => [
+                    [
+                        'name' => 'Example01',
+                        'title' => 'Управление состоянием заказа через отдельные классы состояний',
+                        'url' => '/src/Behavioral/State/Example01/index.php',
+                        'isImplemented' => true,
+                        'structure' => [
+                            'Контракт состояния' => 'OrderStateInterface',
+                            'Контекст' => 'OrderContext',
+                            'Конкретные состояния' => 'NewOrderState, PaidOrderState, CancelledOrderState',
+                        ],
+                    ],
+                ],
+            ],
+            [
                 'name' => 'Pipeline',
                 'description' => 'Пропускает данные через последовательность обработчиков.',
                 'isImplemented' => false,
