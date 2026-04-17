@@ -101,8 +101,21 @@ return [
             [
                 'name' => 'Adapter',
                 'description' => 'Позволяет объектам с несовместимыми интерфейсами работать вместе.',
-                'isImplemented' => false,
-                'examples' => [],
+                'isImplemented' => true,
+                'examples' => [
+                    [
+                        'name' => 'Example01',
+                        'title' => 'Адаптация внешнего сервиса температуры к интерфейсу приложения',
+                        'url' => '/src/Structural/Adapter/Example01/index.php',
+                        'isImplemented' => true,
+                        'structure' => [
+                            'Контракт' => 'TemperatureProviderInterface',
+                            'Несовместимый внешний класс' => 'ExternalTemperatureReader',
+                            'Адаптер' => 'FahrenheitTemperatureAdapter',
+                            'Клиентский код' => 'WeatherReporter',
+                        ],
+                    ],
+                ],
             ],
             [
                 'name' => 'Bridge',
