@@ -4,3 +4,4 @@
 !/var/log/xdebug/.gitkeep
 .env
 docker-compose.override.yml
+/archive_2023.zip

@@ -32,6 +32,9 @@ composer-dump-autoload: docker-init
 
 composer-init: composer-install composer-dump-autoload
 
+composer-validate:
+	composer validate
+
 lint:
 	composer exec phpcs -- --standard=phpcs.xml config/ public/ src/
 
