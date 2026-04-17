@@ -1,6 +1,6 @@
 SHELL := bash
 
-.PHONY: docker-init docker-build docker-up docker-down docker-logs docker-shell composer-install composer-dump-autoload composer-init
+.PHONY: docker-init docker-build docker-up docker-down docker-logs docker-shell composer-install composer-dump-autoload composer-init lint lint-fix git-hooks-init
 
 DOCKER_ENV_FILE := .env
 DOCKER_ENV_EXAMPLE := .env.example
@@ -37,3 +37,7 @@ lint:
 
 lint-fix:
 	composer exec phpcbf -- --standard=phpcs.xml config/ public/ src/
+	
+git-hooks-init:
+	git config core.hooksPath .githooks
+	chmod +x .githooks/pre-commit

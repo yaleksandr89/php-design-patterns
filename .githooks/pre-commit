@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "Запуск pre-commit проверок..."
+
+if [ ! -f "composer.json" ]; then
+    echo "composer.json не найден"
+    exit 1
+fi
+
+if [ ! -f "phpcs.xml" ]; then
+    echo "phpcs.xml не найден"
+    exit 1
+fi
+
+if [ ! -d "vendor" ]; then
+    echo "Директория vendor не найдена. Выполни composer install"
+    exit 1
+fi
+
+composer exec phpcs -- --standard=phpcs.xml config/ public/ src/
+
+echo "Pre-commit проверки пройдены"
