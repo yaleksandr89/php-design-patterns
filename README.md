@@ -124,6 +124,18 @@ make composer-install
 make composer-dump-autoload
 ```
 
+Проверить код по стандарту PSR‑12
+
+```bash
+make lint
+```
+
+Исправить форматирование
+
+```bash
+make make lint-fix
+```
+
 ---
 
 ## Отладка

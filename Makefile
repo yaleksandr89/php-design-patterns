@@ -31,3 +31,9 @@ composer-dump-autoload: docker-init
 	$(DOCKER_COMPOSE) exec php composer dump-autoload -o
 
 composer-init: composer-install composer-dump-autoload
+
+lint:
+	composer exec phpcs -- --standard=phpcs.xml config/ public/ src/
+
+lint-fix:
+	composer exec phpcbf -- --standard=phpcs.xml config/ public/ src/

@@ -39,37 +39,57 @@ foreach ($patternCatalog as $group) {
     <header class="page-header mb-5">
         <h1 class="display-5 fw-bold mb-3">Паттерны проектирования (PHP)</h1>
         <p class="lead text-secondary mb-0">
-            Учебный проект с практическими примерами паттернов проектирования на PHP.
+            Проект с практическими примерами паттернов проектирования на PHP.
         </p>
     </header>
 
-    <?php foreach ($viewData as $group): ?>
+    <?php foreach ($viewData as $group) : ?>
+        <?php
+        $groupTitle = htmlspecialchars(
+            $group['title'],
+            ENT_QUOTES | ENT_SUBSTITUTE,
+            'UTF-8'
+        );
+        ?>
         <section class="pattern-group mb-5">
             <div class="mb-4">
                 <h2 class="h2 mb-0">
-                    <?= htmlspecialchars($group['title'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>
+                    <?= $groupTitle ?>
                 </h2>
             </div>
 
             <div class="row g-4">
-                <?php foreach ($group['patterns'] as $pattern): ?>
+                <?php foreach ($group['patterns'] as $pattern) : ?>
+                    <?php
+                    $patternName = htmlspecialchars(
+                        $pattern['name'],
+                        ENT_QUOTES | ENT_SUBSTITUTE,
+                        'UTF-8'
+                    );
+
+                    $patternDescription = htmlspecialchars(
+                        $pattern['description'],
+                        ENT_QUOTES | ENT_SUBSTITUTE,
+                        'UTF-8'
+                    );
+                    ?>
                     <div class="col-12 col-md-6 col-xl-4">
                         <article class="card pattern-card h-100 border-0 shadow-sm">
                             <div class="card-body d-flex flex-column">
                                 <div class="d-flex align-items-start justify-content-between gap-3 mb-3">
                                     <h3 class="h4 card-title mb-0">
-                                        <?= htmlspecialchars($pattern['name'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>
+                                        <?= $patternName ?>
                                     </h3>
 
-                                    <?php if ($pattern['isImplemented']): ?>
+                                    <?php if ($pattern['isImplemented']) : ?>
                                         <span class="badge rounded-pill text-bg-success">Реализован</span>
-                                    <?php else: ?>
+                                    <?php else : ?>
                                         <span class="badge rounded-pill text-bg-secondary">В плане</span>
                                     <?php endif; ?>
                                 </div>
 
                                 <p class="card-text text-secondary mb-4">
-                                    <?= htmlspecialchars($pattern['description'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>
+                                    <?= $patternDescription ?>
                                 </p>
 
                                 <div class="mt-auto">
@@ -77,50 +97,87 @@ foreach ($patternCatalog as $group) {
                                         <h4 class="h6 text-uppercase text-secondary mb-0">Примеры</h4>
                                     </div>
 
-                                    <?php if ($pattern['examples'] === []): ?>
+                                    <?php if ($pattern['examples'] === []) : ?>
                                         <div class="text-secondary small">
                                             Примеры пока не добавлены.
                                         </div>
-                                    <?php else: ?>
+                                    <?php else : ?>
                                         <div class="list-group list-group-flush pattern-example-list">
-                                            <?php foreach ($pattern['examples'] as $example): ?>
+                                            <?php foreach ($pattern['examples'] as $example) : ?>
+                                                <?php
+                                                $exampleName = htmlspecialchars(
+                                                    $example['name'],
+                                                    ENT_QUOTES | ENT_SUBSTITUTE,
+                                                    'UTF-8'
+                                                );
+
+                                                $exampleTitle = htmlspecialchars(
+                                                    $example['title'],
+                                                    ENT_QUOTES | ENT_SUBSTITUTE,
+                                                    'UTF-8'
+                                                );
+
+                                                $structureTitle = htmlspecialchars(
+                                                    $pattern['name'] . ' / ' . $example['name'],
+                                                    ENT_QUOTES | ENT_SUBSTITUTE,
+                                                    'UTF-8'
+                                                );
+
+                                                $structureContent = htmlspecialchars(
+                                                    $example['structureHtml'],
+                                                    ENT_QUOTES | ENT_SUBSTITUTE,
+                                                    'UTF-8'
+                                                );
+
+                                                $structureAriaLabel = htmlspecialchars(
+                                                    'Показать структуру примера ' . $example['name'],
+                                                    ENT_QUOTES | ENT_SUBSTITUTE,
+                                                    'UTF-8'
+                                                );
+
+                                                $exampleUrl = htmlspecialchars(
+                                                    (string) $example['url'],
+                                                    ENT_QUOTES | ENT_SUBSTITUTE,
+                                                    'UTF-8'
+                                                );
+                                                ?>
                                                 <div class="list-group-item">
                                                     <div class="d-flex justify-content-between align-items-start gap-3">
                                                         <div class="me-3 flex-grow-1">
                                                             <div class="fw-semibold">
-                                                                <?= htmlspecialchars($example['name'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>
+                                                                <?= $exampleName ?>
                                                             </div>
                                                             <div class="small text-secondary">
-                                                                <?= htmlspecialchars($example['title'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>
+                                                                <?= $exampleTitle ?>
                                                             </div>
                                                         </div>
 
                                                         <div class="d-flex align-items-center gap-2">
-                                                            <?php if ($example['structureHtml'] !== ''): ?>
+                                                            <?php if ($example['structureHtml'] !== '') : ?>
                                                                 <button
-                                                                        type="button"
-                                                                        class="pattern-help-button"
-                                                                        data-bs-toggle="popover"
-                                                                        data-bs-trigger="hover focus"
-                                                                        data-bs-placement="left"
-                                                                        data-bs-html="true"
-                                                                        data-bs-title="<?= htmlspecialchars($pattern['name'] . ' / ' . $example['name'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>: структура"
-                                                                        data-bs-content="<?= htmlspecialchars($example['structureHtml'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>"
-                                                                        aria-label="Показать структуру примера <?= htmlspecialchars($example['name'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>"
-                                                                        title="Структура примера"
+                                                                    type="button"
+                                                                    class="pattern-help-button"
+                                                                    data-bs-toggle="popover"
+                                                                    data-bs-trigger="hover focus"
+                                                                    data-bs-placement="left"
+                                                                    data-bs-html="true"
+                                                                    data-bs-title="<?= $structureTitle ?>: структура"
+                                                                    data-bs-content="<?= $structureContent ?>"
+                                                                    aria-label="<?= $structureAriaLabel ?>"
+                                                                    title="Структура примера"
                                                                 >
                                                                     <span class="pattern-help-icon">i</span>
                                                                 </button>
                                                             <?php endif; ?>
 
-                                                            <?php if ($example['isReady']): ?>
+                                                            <?php if ($example['isReady']) : ?>
                                                                 <a
-                                                                        href="<?= htmlspecialchars((string) $example['url'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>"
-                                                                        class="btn btn-sm btn-primary"
+                                                                    href="<?= $exampleUrl ?>"
+                                                                    class="btn btn-sm btn-primary"
                                                                 >
                                                                     Открыть
                                                                 </a>
-                                                            <?php else: ?>
+                                                            <?php else : ?>
                                                                 <span class="badge text-bg-secondary rounded-pill">
                                                                     Скоро
                                                                 </span>
